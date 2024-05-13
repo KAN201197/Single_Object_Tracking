@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/kent/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/kent/catkin_ws/src/homework_1/include/**",
+        "/home/kent/catkin_ws/src/rto_Robot_Navigation/rto_node/include/**",
+        "/home/kent/catkin_ws/src/rto_Robot_Navigation/rto_safety/include/**",
+        "/home/kent/catkin_ws/src/rto_Robot_Navigation/rto_teleop/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,25 @@
+<launch>
+    
+    <!-- parameter use to decide which sequence to use -->
+    <param name="sequence" value="1"/>
+    
+    <!-- Launch the rosbag player -->
+    <node name="rosbag_player" pkg="rosbag" type="play" args="--loop $(find object_tracking_ros)/rosbag/seq_$(arg sequence).bag" output="screen"/>
+  
+    <!-- Launch the object tracking node using kalman filter algorithm-->
+    <node name="object_tracking_node" pkg="object_tracking_ros" type="object_tracking.py" output="screen">
+
+        <!-- Parameters for sequence 1 -->
+        <param name="groundtruth_path" if="$(eval sequence==1)" value="$(find object_tracking_ros)/data/seq_1/groundtruth.txt"/>
+        <param name="firsttrack_path" if="$(eval sequence==1)" value="$(find object_tracking_ros)/data/seq_1/firsttrack.txt"/>
+
+        <!-- Parameters for sequence 2 -->
+        <param name="groundtruth_path" if="$(eval sequence==2)" value="$(find object_tracking_ros)/data/seq_2/groundtruth.txt"/>
+        <param name="firsttrack_path" if="$(eval sequence==2)" value="$(find object_tracking_ros)/data/seq_2/firsttrack.txt"/>
+        
+    </node>
+  
+    <!-- Launch RViz for visualization result-->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find object_tracking_ros)/rviz/visualization_result.rviz" output="screen"/>
+
+</launch>
